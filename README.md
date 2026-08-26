@@ -53,7 +53,7 @@ npm install
 ```
 This installs React, Framer Motion, react-icons, and react-scroll.
 
-### Step 4 — Add Your Photo
+### Step 4 — Add Photo
 - Copy your photo (DSC00074.jpg or any image) to the `public/` folder
 - Rename it to `bibash.jpg`
 - That's it — the Hero section will display it automatically!
