@@ -10,7 +10,7 @@ A modern, fully responsive, dark/light mode portfolio website built with React a
 bibash-portfolio/
 ├── public/
 │   ├── index.html
-│   └── bibash.jpg          ← ADD YOUR PHOTO HERE
+│   └── bibash.jpg        
 ├── src/
 │   ├── components/
 │   │   ├── Navbar.jsx / .css
@@ -120,6 +120,4 @@ Creates an optimized `build/` folder ready for deployment on:
 | react-icons | 5.x |
 | react-scroll | 1.9.x |
 
----
-
-Built with ❤️ for Bibash Gautam | Niagara Falls, Canada 🇨🇦
+Bibash Gautam | Niagara Falls, Canada 🇨🇦
