@@ -1,0 +1,82 @@
+.edu-section {
+  background: var(--bg);
+  position: relative; overflow: hidden;
+}
+.edu-blob-b {
+  position: absolute; width: 280px;
+  top: 40px; right: -60px;
+  opacity: 0.06; pointer-events: none;
+}
+.edu-blur {
+  position: absolute; width: 500px;
+  bottom: -120px; left: -100px;
+  opacity: 0.15; pointer-events: none;
+  mix-blend-mode: screen;
+}
+[data-theme='light'] .edu-blur { opacity: 0.05; }
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+  position: relative; z-index: 1;
+}
+
+.edu-card { padding: 34px; }
+
+.edu-top {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-bottom: 20px;
+}
+
+.edu-icon-wrap {
+  width: 54px; height: 54px; border-radius: 16px;
+  background: rgba(247,148,29,0.1);
+  border: 1px solid rgba(247,148,29,0.2);
+  display: flex; align-items: center; justify-content: center;
+}
+.edu-icon { color: var(--orange); }
+
+.edu-status {
+  font-size: 0.68rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--orange);
+  background: rgba(247,148,29,0.08);
+  padding: 5px 12px; border-radius: 50px;
+}
+
+.edu-degree {
+  font-family: var(--font-display);
+  font-size: 1.18rem; font-weight: 800; margin-bottom: 4px;
+}
+
+.edu-school {
+  font-size: 0.9rem; color: var(--text-muted); margin-bottom: 18px;
+}
+
+.edu-meta {
+  display: flex; flex-direction: column; gap: 7px;
+  font-size: 0.79rem; color: var(--text-muted);
+  padding-bottom: 18px; border-bottom: 1px solid var(--border);
+  margin-bottom: 18px;
+}
+.edu-meta span { display: flex; align-items: center; gap: 6px; }
+
+.edu-hl-label {
+  font-size: 0.68rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--text-muted); margin-bottom: 12px;
+}
+
+.edu-highlights ul {
+  list-style: none; display: flex; flex-direction: column; gap: 9px;
+}
+.edu-highlights li {
+  font-size: 0.87rem; color: var(--text-muted);
+  display: flex; gap: 8px; line-height: 1.5;
+}
+.hl-arrow { color: var(--orange); font-weight: 700; flex-shrink: 0; }
+
+@media (max-width: 768px) {
+  .edu-grid { grid-template-columns: 1fr; }
+}
