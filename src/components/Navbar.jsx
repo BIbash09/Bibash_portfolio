@@ -54,13 +54,24 @@ export default function Navbar() {
         </nav>
 
         <div className="nav-actions">
-          <button className="theme-toggle" onClick={() => setIsDark(!isDark)} aria-label="Toggle theme">
+          <button
+            className="theme-toggle"
+            onClick={() => setIsDark(!isDark)}
+            aria-label={`Switch to ${isDark ? 'light' : 'dark'} theme`}
+            aria-pressed={isDark}
+          >
             {isDark ? <HiSun size={17} /> : <HiMoon size={17} />}
           </button>
           <a href="/Bibash_Gautam_Resume.pdf" download className="btn btn-primary nav-cv">
-            Download CV
+            Download Résumé
           </a>
-          <button className="menu-btn" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+          <button
+            className="menu-btn"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={`${menuOpen ? 'Close' : 'Open'} navigation menu`}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
+          >
             {menuOpen ? <HiX size={22} /> : <HiMenuAlt3 size={22} />}
           </button>
         </div>
@@ -70,6 +81,7 @@ export default function Navbar() {
         {menuOpen && (
           <motion.div
             className="mobile-menu"
+            id="mobile-navigation"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -87,7 +99,7 @@ export default function Navbar() {
               </motion.div>
             ))}
             <a href="/Bibash_Gautam_Resume.pdf" download className="btn btn-primary" style={{ marginTop: 20, alignSelf: 'flex-start' }}>
-              Download CV
+              Download Résumé
             </a>
           </motion.div>
         )}

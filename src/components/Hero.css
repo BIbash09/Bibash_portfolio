@@ -180,8 +180,10 @@
 
 .social-note {
   font-size: 0.78rem; color: var(--text-muted);
-  font-weight: 500;
+  font-weight: 500; text-decoration: none;
+  transition: color 0.2s ease;
 }
+.social-note:hover { color: var(--accent); }
 
 /* ── Photo Visual ── */
 .hero-visual {

@@ -5,25 +5,26 @@ import { HiMail, HiPhone, HiLocationMarker, HiPaperAirplane } from 'react-icons/
 import './Contact.css';
 
 const contactInfo = [
-  { icon: <HiMail />, label: 'Email', value: 'bibashgautam.official@gmail.com', href: 'mailto:bibashgautam.official@gmail.com' },
-  { icon: <HiPhone />, label: 'Phone', value: '+1 289-969-5617', href: 'tel:+12899695617' },
-  { icon: <HiLocationMarker />, label: 'Location', value: 'Niagara Falls, ON, Canada', href: 'https://www.google.com/maps/place/Niagara+Falls,+ON/@43.0540284,-79.1704351,12z/data=!3m1!4b1!4m6!3m5!1s0x89d3445eec824db9:0x46d2c56156bda288!8m2!3d43.0895577!4d-79.0849436!16zL20vMDE4bGNf?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D' },
-  { icon: <FaLinkedin />, label: 'LinkedIn', value: 'linkedin.com/in/bibashgautam', href: 'https://www.linkedin.com/in/bibash-gautam/' },
-  { icon: <FaGithub />, label: 'GitHub', value: 'github.com/bibashgautam', href: 'https://github.com/BIbash09' },
+  { icon: <HiMail />, label: 'Email', value: 'bibashgautam@gmail.com', href: 'mailto:bibashgautam@gmail.com' },
+  { icon: <HiPhone />, label: 'Phone', value: '+1 289-600-3517', href: 'tel:+12896003517' },
+  { icon: <HiLocationMarker />, label: 'Location', value: 'Niagara Falls, ON, Canada', href: 'https://www.google.com/maps/search/?api=1&query=Niagara+Falls%2C+Ontario%2C+Canada' },
+  { icon: <FaLinkedin />, label: 'LinkedIn', value: 'linkedin.com/in/bibash-gautam', href: 'https://www.linkedin.com/in/bibash-gautam/' },
+  { icon: <FaGithub />, label: 'GitHub', value: 'github.com/BIbash09', href: 'https://github.com/BIbash09' },
 ];
 
 export default function Contact() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
-  const [sent, setSent] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [draftOpened, setDraftOpened] = useState(false);
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
   const handleSubmit = e => {
     e.preventDefault();
-    setLoading(true);
-    setTimeout(() => { setLoading(false); setSent(true); setForm({ name:'', email:'', subject:'', message:'' }); }, 1500);
+    const subject = encodeURIComponent(form.subject);
+    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`);
+    window.location.href = `mailto:bibashgautam@gmail.com?subject=${subject}&body=${body}`;
+    setDraftOpened(true);
   };
 
   return (
@@ -46,7 +47,7 @@ export default function Contact() {
             <span className="gradient-text">together</span>
           </h2>
           <p className="section-subtitle">
-            Open to internships, collaborations, and full-time opportunities. Say hello!
+            Open to data analyst, business analyst, BI, internship, and collaborative opportunities.
           </p>
         </motion.div>
 
@@ -62,12 +63,12 @@ export default function Contact() {
               <img src="/logo.png" alt="logo" className="contact-logo" />
               <div>
                 <h3 className="contact-name">Bibash Gautam</h3>
-                <p className="contact-tagline">Data Analyst · Developer · Designer</p>
+                <p className="contact-tagline">Data Analyst · BI · Software Development</p>
               </div>
             </div>
             <p className="contact-desc">
-              Whether you have a project in mind, want to discuss data science,
-              or just want to connect — my inbox is always open.
+              Have a role, project, or analytics problem to discuss? Use the form to open a
+              prepared email draft, or contact me directly through the verified links below.
             </p>
             <div className="contact-items">
               {contactInfo.map((c, i) => (
@@ -97,35 +98,35 @@ export default function Contact() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.3 }}
           >
-            {sent ? (
+            {draftOpened ? (
               <div className="form-success card">
-                <span className="success-icon">✅</span>
-                <h3>Message sent!</h3>
-                <p>Thanks for reaching out. I'll reply within 24 hours.</p>
-                <button className="btn btn-outline" onClick={() => setSent(false)}>Send another</button>
+                <span className="success-icon">✉️</span>
+                <h3>Email draft opened</h3>
+                <p>Review the draft in your email app, then press Send. Nothing is sent automatically.</p>
+                <button className="btn btn-outline" onClick={() => setDraftOpened(false)}>Create another draft</button>
               </div>
             ) : (
               <form className="contact-form card" onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group">
-                    <label>Your Name</label>
-                    <input type="text" name="name" value={form.name} onChange={handleChange} placeholder="Bibash Gautam" required />
+                    <label htmlFor="contact-name">Your Name</label>
+                    <input id="contact-name" type="text" name="name" value={form.name} onChange={handleChange} placeholder="Your name" autoComplete="name" required />
                   </div>
                   <div className="form-group">
-                    <label>Email Address</label>
-                    <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="bibash@example.com" required />
+                    <label htmlFor="contact-email">Email Address</label>
+                    <input id="contact-email" type="email" name="email" value={form.email} onChange={handleChange} placeholder="you@example.com" autoComplete="email" required />
                   </div>
                 </div>
                 <div className="form-group">
-                  <label>Subject</label>
-                  <input type="text" name="subject" value={form.subject} onChange={handleChange} placeholder="Project Collaboration / Job Opportunity" required />
+                  <label htmlFor="contact-subject">Subject</label>
+                  <input id="contact-subject" type="text" name="subject" value={form.subject} onChange={handleChange} placeholder="Job opportunity or project discussion" required />
                 </div>
                 <div className="form-group">
-                  <label>Message</label>
-                  <textarea name="message" rows={5} value={form.message} onChange={handleChange} placeholder="Tell me about your project or opportunity..." required />
+                  <label htmlFor="contact-message">Message</label>
+                  <textarea id="contact-message" name="message" rows={5} value={form.message} onChange={handleChange} placeholder="Tell me about the role, project, or question..." required />
                 </div>
-                <button type="submit" className="btn btn-primary" disabled={loading}>
-                  {loading ? 'Sending...' : <><HiPaperAirplane /> Send Message</>}
+                <button type="submit" className="btn btn-primary">
+                  <HiPaperAirplane /> Open Email Draft
                 </button>
               </form>
             )}

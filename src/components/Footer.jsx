@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-scroll';
-import { FaGithub, FaLinkedin, FaYoutube, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import './Footer.css';
 
 const socials = [
   { icon: <FaGithub />,   href: 'https://github.com/BIbash09',   label: 'GitHub'   },
   { icon: <FaLinkedin />, href: 'https://www.linkedin.com/in/bibash-gautam/', label: 'LinkedIn' },
-  { icon: <FaYoutube />,  href: 'https://www.youtube.com/@Bibashh', label: 'YouTube'  },
-  { icon: <FaTwitter />,  href: 'https://x.com/Bibashgautam11', label: 'Twitter'  },
 ];
 
 const navLinks = ['about','skills','projects','experience','education','contact'];
@@ -28,8 +26,8 @@ export default function Footer() {
               <span className="footer-logo-text">Bibash<span>.</span></span>
             </div>
             <p className="footer-tagline">
-              Data Analyst · Web Developer · UI/UX Designer<br />
-              Crafting data-driven digital experiences from Canada 🇨🇦
+              Data Analyst · Business Intelligence · Software Development<br />
+              Turning data into clear, decision-ready insight from Canada.
             </p>
             <div className="footer-socials">
               {socials.map(s => (
@@ -53,18 +51,18 @@ export default function Footer() {
           {/* Contact */}
           <div className="footer-links-col">
             <p className="footer-col-title">Contact</p>
-            <a href="mailto:bibashgautam@gmail.com" className="footer-link">bibashgautam.official@gmail.com</a>
-            <a href="tel:+12896003517"              className="footer-link">+1 289-969-5617</a>
+            <a href="mailto:bibashgautam@gmail.com" className="footer-link">bibashgautam@gmail.com</a>
+            <a href="tel:+12896003517"              className="footer-link">+1 289-600-3517</a>
             <p className="footer-link-text">Niagara Falls, ON, Canada</p>
             <a href="/Bibash_Gautam_Resume.pdf" download className="btn btn-primary footer-cv-btn">
-              Download CV
+              Download Résumé
             </a>
           </div>
         </div>
 
         <div className="footer-bottom">
           <p>© {new Date().getFullYear()} Bibash Gautam. All rights reserved.</p>
-          <p>Designed & Built by <span className="gradient-text">Bibash Gautam</span></p>
+          <p>Designed and built by <span className="gradient-text">Bibash Gautam</span></p>
         </div>
       </div>
     </footer>
