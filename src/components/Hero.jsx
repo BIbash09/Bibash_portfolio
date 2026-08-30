@@ -2,15 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
 import { HiArrowDown, HiDownload } from 'react-icons/hi';
-import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import './Hero.css';
 
-const roles = ['Data Analytics Student', 'Frontend Developer', 'UI/UX Designer', 'Problem Solver'];
+const roles = ['Data Analyst', 'Business Intelligence Analyst', 'Business Analyst', 'Front-End Developer'];
 
 const socials = [
   { icon: <FaGithub />, href: 'https://github.com/BIbash09', label: 'GitHub' },
   { icon: <FaLinkedin />, href: 'https://www.linkedin.com/in/bibash-gautam/', label: 'LinkedIn' },
-  { icon: <FaYoutube />, href: 'https://www.youtube.com/@Bibashh', label: 'YouTube' },
 ];
 
 export default function Hero() {
@@ -39,7 +38,7 @@ export default function Hero() {
             transition={{ delay: 0.2 }}
           >
             <span className="badge-pulse" />
-            Open to opportunities in Canada 🇨🇦
+            Open to data and business analyst opportunities in Canada
           </motion.div>
 
           <motion.h1
@@ -47,7 +46,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
           >
-            Hey, I'm<br />
+            Hi, I'm<br />
             <span className="hero-name gradient-text">Bibash Gautam</span>
           </motion.h1>
 
@@ -65,9 +64,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.65 }}
           >
-            Passionate about turning data into insights and ideas into elegant digital 
-            experiences. Currently pursuing my Master of Data Analytics at the 
-            University of Niagara Falls, Canada.
+            Master of Data Analytics student with a software development background. I use
+            Python, SQL, Power BI, Tableau, and Excel to explore data, communicate findings,
+            and support better business decisions.
           </motion.p>
 
           <motion.div
@@ -75,11 +74,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
           >
-            <Link to="projects" smooth duration={600} offset={-80}>
-              <button className="btn btn-primary">View My Work</button>
+            <Link to="projects" smooth duration={600} offset={-80} className="btn btn-primary">
+              Explore Case Studies
             </Link>
             <a href="/Bibash_Gautam_Resume.pdf" download className="btn btn-outline">
-              <HiDownload /> Download CV
+              <HiDownload /> Download Résumé
             </a>
           </motion.div>
 
@@ -95,7 +94,7 @@ export default function Hero() {
               </a>
             ))}
             <span className="social-divider" />
-            <span className="social-note">bibashgautam.official@gmail.com</span>
+            <a className="social-note" href="mailto:bibashgautam@gmail.com">bibashgautam@gmail.com</a>
           </motion.div>
         </div>
 
@@ -117,8 +116,8 @@ export default function Hero() {
               transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}>
               <span className="fc-emoji">🎓</span>
               <div>
-                <p className="fc-title">MDA Student</p>
-                <p className="fc-sub">Niagara Falls, Canada</p>
+                <p className="fc-title">MDA Candidate</p>
+                <p className="fc-sub">University of Niagara Falls</p>
               </div>
             </motion.div>
 
@@ -128,17 +127,17 @@ export default function Hero() {
               <span className="fc-emoji">⚡</span>
               <div>
                 <p className="fc-title">2+ Years</p>
-                <p className="fc-sub">Dev Experience</p>
+                <p className="fc-sub">Professional Experience</p>
               </div>
             </motion.div>
 
             <motion.div className="float-card card-bottom-right"
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}>
-              <span className="fc-emoji">🚀</span>
+              <span className="fc-emoji">📊</span>
               <div>
-                <p className="fc-title">10+ Projects</p>
-                <p className="fc-sub">Shipped</p>
+                <p className="fc-title">Analytics Toolkit</p>
+                <p className="fc-sub">Python · SQL · BI</p>
               </div>
             </motion.div>
           </div>
@@ -150,7 +149,7 @@ export default function Hero() {
         initial={{ opacity: 0 }} animate={{ opacity: 1 }}
         transition={{ delay: 1.4 }}>
         <Link to="about" smooth duration={600}>
-          <div className="scroll-btn"><HiArrowDown /></div>
+          <span className="scroll-btn" aria-label="Scroll to About"><HiArrowDown /></span>
         </Link>
       </motion.div>
     </section>

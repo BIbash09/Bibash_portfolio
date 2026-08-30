@@ -7,9 +7,9 @@ const education = [
   {
     degree: 'Master of Data Analytics',
     school: 'University of Niagara Falls',
-    period: '2025 – Present',
+    period: '2024 – Present',
     location: 'Niagara Falls, ON, Canada 🇨🇦',
-    status: 'In Progress · 4th Semester',
+    status: 'In Progress · 3rd Semester',
     highlights: [
       'Statistical Modelling & Machine Learning',
       'Business Intelligence & Data Visualization',
@@ -20,8 +20,8 @@ const education = [
   {
     degree: 'Bachelor of Computer Applications',
     school: 'Tribhuvan University',
-    period: '2017 – 2022',
-    location: 'Kathmandu, Nepal 🇳🇵',
+    period: '2017 – 2020',
+    location: 'Nepal 🇳🇵',
     status: 'Completed',
     highlights: [
       'Core Programming: Java, C, Python',
@@ -51,8 +51,8 @@ export default function Education() {
         >
           <p className="section-label">Education</p>
           <h2 className="section-title">
-            Academic<br />
-            <span className="gradient-text">foundations</span>
+            Education supporting<br />
+            <span className="gradient-text">analytics and technology</span>
           </h2>
         </motion.div>
 

@@ -1,21 +1,21 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { FaDatabase, FaCode, FaPalette, FaGamepad, FaYoutube, FaChartLine } from 'react-icons/fa';
+import { FaDatabase, FaChartBar, FaChartLine, FaLightbulb, FaProjectDiagram, FaSearch } from 'react-icons/fa';
 import './About.css';
 
 const interests = [
   { icon: <FaDatabase />, label: 'Data Analytics' },
-  { icon: <FaCode />, label: 'Web Development' },
-  { icon: <FaPalette />, label: 'UI/UX Design' },
-  { icon: <FaYoutube />, label: 'YouTube Automation' },
-  { icon: <FaGamepad />, label: 'Esports Management' },
   { icon: <FaChartLine />, label: 'Business Intelligence' },
+  { icon: <FaSearch />, label: 'Exploratory Analysis' },
+  { icon: <FaChartBar />, label: 'Dashboard Reporting' },
+  { icon: <FaProjectDiagram />, label: 'Statistical Modelling' },
+  { icon: <FaLightbulb />, label: 'Business Problem Solving' },
 ];
 
 const stats = [
-  { num: '2+', label: 'Years Experience' },
-  { num: '10+', label: 'Projects Built' },
-  { num: '3', label: 'Languages Spoken' },
+  { num: '2+', label: 'Years Professional Experience' },
+  { num: 'MDA', label: 'Master’s In Progress' },
+  { num: '3', label: 'Languages' },
 ];
 
 export default function About() {
@@ -77,22 +77,23 @@ export default function About() {
             </h2>
 
             <p className="about-para">
-              I'm <strong>Bibash Gautam</strong> — a results-driven data enthusiast and frontend
-              developer currently pursuing my <strong>Master of Data Analytics</strong> at the
+              I'm <strong>Bibash Gautam</strong>, a data analyst and software developer currently
+              pursuing a <strong>Master of Data Analytics</strong> at the
               University of Niagara Falls, Canada.
             </p>
             <p className="about-para">
-              With 2+ years of professional experience at companies like Armam Games and Foliage
-              Soft, I bridge the gap between raw data and beautiful, functional interfaces.
-              I'm fluent in English, Hindi, and Nepali — bringing a global perspective to every project.
+              My experience at Armam Games and Foliage Soft built a strong foundation in
+              structured problem solving, quality assurance, API integration, and cross-functional
+              delivery. I now apply that technical background to analytical work.
             </p>
             <p className="about-para">
-              Beyond code, I'm passionate about esports community building, YouTube content
-              automation, and using machine learning to solve real-world business problems.
+              I work across exploratory data analysis, hypothesis testing, regression, data
+              wrangling, ETL, and dashboard reporting. My goal is to translate technical findings
+              into clear, practical recommendations for decision-makers.
             </p>
 
             <div className="interests-wrap">
-              <p className="interests-title">Interests & Focus</p>
+              <p className="interests-title">Analytics Focus</p>
               <div className="interests-list">
                 {interests.map((item, i) => (
                   <motion.div

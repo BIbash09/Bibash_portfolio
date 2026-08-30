@@ -1,37 +1,21 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { FaBuilding, FaCalendar, FaMapMarkerAlt, FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
+import { FaBuilding, FaCalendar, FaMapMarkerAlt } from 'react-icons/fa'
 import './Experience.css'
 
 const experiences = [
-  {
-    role: 'Cook',
-    company: 'Churchs Texas Chicken',
-    period: 'Sept 2025 – Present',
-    location: 'Niagara Falls, ON, Canada',
-    type: 'Part-time',
-    code: '',
-    liveDemo: '',
-    bullets: [
-      'Prepared and cooked menu items following company recipes and food safety standards.',
-      'Maintained cleanliness and hygiene in kitchen and food preparation areas.',
-      'Operated kitchen equipment safely and efficiently during busy hours.',
-      'Assisted in food preparation, stocking, and inventory management.',
-    ],
-  },
   {
     role: 'Front-End Developer',
     company: 'Armam Games Private Limited',
     period: 'Jan 2022 – Apr 2022',
     location: 'Maharajganj, Nepal',
     type: 'Full-time',
-    code: '',
-    liveDemo: '',
     bullets: [
       'Built responsive web interfaces using JavaScript and React, improving session engagement.',
       'Developed reusable component libraries as the foundation for future product features.',
       'Implemented personalized UI features based on user behavior data.',
       'Enforced coding standards and QA processes to maintain production-grade code quality.',
+      'Integrated modern frontend tooling and best practices to support maintainable delivery.',
     ],
   },
   {
@@ -40,28 +24,12 @@ const experiences = [
     period: 'Jul 2020 – Apr 2021',
     location: 'Baluwatar Road, Nepal',
     type: 'Internship',
-    code: '',
-    liveDemo: '',
     bullets: [
       'Delivered pixel-perfect cross-platform UIs for web and Android from Figma mockups.',
       'Customized Android AOSP system components for client-specific hardware requirements.',
       'Resolved memory leaks and performance bottlenecks, reducing app crash rates.',
       'Integrated RESTful APIs to power real-time, data-driven features across platforms.',
-    ],
-  },
-  
-  {
-    role: 'Esports Team Manager',
-    company: 'Zebec Esports',
-    period: '2021 – 2022',
-    location: 'Nepal',
-    type: 'Volunteer',
-    code: '',
-    liveDemo: '',
-    bullets: [
-      'Managed team roster, scheduling, and tournament logistics for competitive events.',
-      'Built community engagement strategies, growing team following across social platforms.',
-      'Coordinated sponsorships and represented the team at national-level competitions.',
+      'Collaborated cross-functionally in an Agile environment to deliver features on schedule.',
     ],
   },
 ]
@@ -82,9 +50,12 @@ export default function Experience() {
         >
           <p className="section-label">Experience</p>
           <h2 className="section-title">
-            Where I've<br />
-            <span className="gradient-text">made an impact</span>
+            A technical foundation in<br />
+            <span className="gradient-text">delivery and problem solving</span>
           </h2>
+          <p className="section-subtitle">
+            Professional development experience that supports analytical thinking, collaboration, and quality.
+          </p>
         </motion.div>
 
         <div className="timeline">
@@ -119,20 +90,6 @@ export default function Experience() {
                     </li>
                   ))}
                 </ul>
-                {(exp.code || exp.liveDemo) && (
-                  <div className="exp-links">
-                    {exp.code && (
-                      <a href={exp.code} target="_blank" rel="noopener noreferrer" className="exp-link">
-                        <FaGithub size={14} /> Code
-                      </a>
-                    )}
-                    {exp.liveDemo && (
-                      <a href={exp.liveDemo} target="_blank" rel="noopener noreferrer" className="exp-link">
-                        <FaExternalLinkAlt size={14} /> Live Demo
-                      </a>
-                    )}
-                  </div>
-                )}
               </div>
             </motion.div>
           ))}

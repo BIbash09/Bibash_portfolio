@@ -3,33 +3,35 @@ import './Cursor.css';
 
 export default function Cursor() {
   const [pos, setPos] = useState({ x: -100, y: -100 });
-  const [dot, setDot] = useState({ x: -100, y: -100 });
   const [hovering, setHovering] = useState(false);
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
-    const onMove = (e) => {
-      setPos({ x: e.clientX, y: e.clientY });
-      setTimeout(() => setDot({ x: e.clientX, y: e.clientY }), 60);
+    const finePointer = window.matchMedia('(pointer: fine)');
+    if (!finePointer.matches) return undefined;
+
+    setEnabled(true);
+    document.body.classList.add('custom-cursor-enabled');
+    const onMove = e => setPos({ x: e.clientX, y: e.clientY });
+    const isInteractive = target => target instanceof Element && Boolean(target.closest('a, button, .card, .tech-card, .interest-chip'));
+    const onOver = e => setHovering(isInteractive(e.target));
+    const onOut = e => {
+      if (!isInteractive(e.relatedTarget)) setHovering(false);
     };
 
-    const onEnter = () => setHovering(true);
-    const onLeave = () => setHovering(false);
-
     window.addEventListener('mousemove', onMove);
-
-    const els = document.querySelectorAll('a, button, .card, .tech-icon-card, .interest-chip');
-    els.forEach((el) => {
-      el.addEventListener('mouseenter', onEnter);
-      el.addEventListener('mouseleave', onLeave);
-    });
+    document.addEventListener('mouseover', onOver);
+    document.addEventListener('mouseout', onOut);
 
     return () => {
       window.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseover', onOver);
+      document.removeEventListener('mouseout', onOut);
+      document.body.classList.remove('custom-cursor-enabled');
     };
   }, []);
 
-  // Only show on desktop
-  if (window.matchMedia('(pointer: coarse)').matches) return null;
+  if (!enabled) return null;
 
   return (
     <>
@@ -39,7 +41,7 @@ export default function Cursor() {
       />
       <div
         className="cursor-dot"
-        style={{ transform: `translate(${dot.x - 4}px, ${dot.y - 4}px)` }}
+        style={{ transform: `translate(${pos.x - 4}px, ${pos.y - 4}px)` }}
       />
     </>
   );

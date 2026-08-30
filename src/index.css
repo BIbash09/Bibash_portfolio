@@ -63,6 +63,11 @@ html[data-theme] {
 
 html { scroll-behavior: smooth; }
 
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
 body {
   font-family: var(--font-body);
   background: var(--bg);
@@ -70,10 +75,23 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   transition: background var(--transition), color var(--transition);
-  cursor: none;
+  cursor: auto;
 }
 
-@media (pointer: coarse) { body { cursor: auto; } }
+@media (pointer: fine) {
+  body.custom-cursor-enabled,
+  body.custom-cursor-enabled a,
+  body.custom-cursor-enabled button { cursor: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg); }

@@ -1,123 +1,82 @@
-# 🚀 Bibash Gautam — Personal Portfolio
+# Bibash Gautam - Data Analyst Portfolio
 
-A modern, fully responsive, dark/light mode portfolio website built with React and Framer Motion.
+A responsive personal portfolio focused on data analytics, business intelligence, and software development. Built with React, Vite, Framer Motion, and React Icons.
 
----
+## Highlights
 
-## 📁 Folder Structure
+- Data and business analyst positioning based on the included résumé
+- Verified project links and résumé-backed experience
+- Dark and light themes with saved preference
+- Responsive navigation and accessible keyboard focus states
+- Contact form that opens a prepared email draft without collecting data
+- Downloadable résumé
 
-```
-bibash-portfolio/
-├── public/
-│   ├── index.html
-│   └── bibash.jpg        
-├── src/
-│   ├── components/
-│   │   ├── Navbar.jsx / .css
-│   │   ├── Hero.jsx / .css
-│   │   ├── About.jsx / .css
-│   │   ├── Skills.jsx / .css
-│   │   ├── Projects.jsx / .css
-│   │   ├── Experience.jsx / .css
-│   │   ├── Education.jsx / .css
-│   │   ├── Contact.jsx / .css
-│   │   ├── Footer.jsx / .css
-│   │   └── Cursor.jsx / .css
-│   ├── context/
-│   │   └── ThemeContext.jsx
-│   ├── App.jsx
-│   ├── index.js
-│   └── index.css
-└── package.json
-```
+## Requirements
 
----
+- Node.js `20.19+` or `22.12+`
+- npm
 
-## ⚡ Quick Start (VS Code)
+Vite 8 does not support older Node.js releases. Check your version with:
 
-### Step 1 — Prerequisites
-Make sure you have installed:
-- **Node.js** (v16 or higher): https://nodejs.org
-- **npm** (comes with Node.js)
-
-### Step 2 — Open in VS Code
 ```bash
-# Open the project folder in VS Code
-code bibash-portfolio
+node --version
 ```
 
-### Step 3 — Install Dependencies
-Open the VS Code terminal (`Ctrl+\`` or View → Terminal) and run:
+## Run locally
+
 ```bash
+git clone https://github.com/BIbash09/Bibash_portfolio.git
+cd Bibash_portfolio
 npm install
-```
-This installs React, Framer Motion, react-icons, and react-scroll.
-
-### Step 4 — Add Photo
-- Copy your photo (DSC00074.jpg or any image) to the `public/` folder
-- Rename it to `bibash.jpg`
-- That's it — the Hero section will display it automatically!
-
-### Step 5 — Start the Dev Server
-```bash
-npm start
-```
-→ Opens automatically at **http://localhost:3000**
-
----
-
-## 🛠 Customization Guide
-
-### Update personal info
-- **Hero**: Edit `src/components/Hero.jsx` — change tagline, description
-- **About**: Edit `src/components/About.jsx` — update bio paragraphs
-- **Projects**: Edit `src/components/Projects.jsx` — add real GitHub/demo links
-- **Contact**: Edit `src/components/Contact.jsx` — update email, phone, LinkedIn
-
-### Change colors / theme
-Edit `src/index.css` — the CSS variables at the top control everything:
-```css
-[data-theme='dark'] {
-  --accent: #7c6aff;     /* Primary purple */
-  --accent-2: #00e5c8;  /* Teal accent */
-}
+npm run dev
 ```
 
-### Add your CV for download
-- Place your CV file as `public/Bibash_Gautam_Resume.pdf`
-- The "Download CV" button in the Navbar will work automatically
+Open [http://localhost:3000](http://localhost:3000) if it does not open automatically.
 
----
+## Production build
 
-## 📦 Build for Production
 ```bash
 npm run build
+npm run preview
 ```
-Creates an optimized `build/` folder ready for deployment on:
-- **Vercel**: `vercel --prod`
-- **Netlify**: Drag & drop the `build/` folder
-- **GitHub Pages**: Use `gh-pages` package
 
----
+The optimized production files are written to `dist/`.
 
-## ✨ Features
-- ⚡ Dark / Light mode toggle
-- 🎞 Framer Motion animations
-- 📱 Fully responsive (mobile + tablet + desktop)
-- 🖱 Custom cursor (desktop only)
-- 📊 Animated skill progress bars
-- 📬 Contact form with validation
-- ⬇️ CV download button
-- 🔢 SEO-friendly HTML structure
+## Project structure
 
----
+```text
+Bibash_portfolio/
+├── public/
+│   ├── Bibash_Gautam_Resume.pdf
+│   ├── Bibash.jpg
+│   ├── Me.png
+│   └── decorative images
+├── src/
+│   ├── components/
+│   ├── context/
+│   ├── App.jsx
+│   ├── index.jsx
+│   └── index.css
+├── index.html
+├── package.json
+└── vite.config.js
+```
 
-## 🧰 Tech Stack
-| Tech | Version |
-|------|---------|
-| React | 18.x |
-| Framer Motion | 11.x |
-| react-icons | 5.x |
-| react-scroll | 1.9.x |
+## Update portfolio content
 
-Bibash Gautam | Niagara Falls, Canada 🇨🇦
+- Hero and headline: `src/components/Hero.jsx`
+- About summary: `src/components/About.jsx`
+- Skills: `src/components/Skills.jsx`
+- Projects: `src/components/Projects.jsx`
+- Experience: `src/components/Experience.jsx`
+- Education: `src/components/Education.jsx`
+- Contact details: `src/components/Contact.jsx` and `src/components/Footer.jsx`
+- Résumé: replace `public/Bibash_Gautam_Resume.pdf` using the same filename
+
+## Contact form behavior
+
+The form creates a `mailto:` link from the visitor's entries and opens their default email application. It does not claim that a message has been sent and does not require an API key or store submitted data.
+
+## Deployment
+
+The `dist/` directory can be deployed to a static hosting provider such as Vercel or Netlify. Use `npm run build` as the build command and `dist` as the output directory.
